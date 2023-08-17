@@ -3,7 +3,7 @@
     <div class="modal">
       <h1>{{ title }}</h1>
       <slot></slot>
-      <button>Hide modal</button>
+      <button @click="handleButtonClick">Hide modal</button>
     </div>
   </teleport>
 </template>
@@ -19,6 +19,19 @@ const props = defineProps({
     default: 'No title specified',
   },
 });
+
+/*
+  handleButtonClick
+*/
+
+const handleButtonClick = () => {
+  emit('hideModal');
+};
+const emit = defineEmits(['hideModal']);
+
+/*
+  emits
+*/
 </script>
 
 <!--
@@ -26,6 +39,7 @@ USING OPTIONS API:
 
 <script>
 export default {
+  emits: ['hideModal'],
   props: {
     title: {
       type: String,
