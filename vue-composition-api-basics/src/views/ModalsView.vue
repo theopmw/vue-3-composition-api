@@ -10,6 +10,7 @@
     <component
       v-model="showModal"
       :is="showDarkModal ? ModalDark : Modal"
+      :userData="userData"
       title="This is the modal title (via prop)"
     >
       <p>
@@ -30,6 +31,12 @@ import { ref } from 'vue';
 // IMPORT MODAL USING COMPOSITIONS API
 import Modal from '@/components/Modal.vue';
 import ModalDark from '@/components/ModalDark.vue';
+
+/*
+  props
+*/
+
+const props = defineProps({ userData: { type: Object } });
 
 /*
   modals
