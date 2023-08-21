@@ -10,7 +10,6 @@
     <component
       v-model="showModal"
       :is="showDarkModal ? ModalDark : Modal"
-      :userData="userData"
       title="This is the modal title (via prop)"
     >
       <p>
@@ -35,8 +34,6 @@ import ModalDark from '@/components/ModalDark.vue';
 /*
   props
 */
-
-const props = defineProps({ userData: { type: Object } });
 
 /*
   modals
