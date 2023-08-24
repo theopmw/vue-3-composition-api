@@ -27,6 +27,7 @@
 */
 
 import { ref, onMounted } from 'vue';
+import { useCounter } from '../use/useCounter';
 import { vAutofocus } from '@/directives/vAutofocus';
 
 /*
@@ -40,6 +41,19 @@ const appTitleRef = ref(null);
 onMounted(() => {
   console.log(`The app title is ${appTitleRef.value.offsetWidth}px wide`);
 });
+
+/*
+  counter
+*/
+
+// access useCounter composable using destucturing
+// allows you to pull out just the things you want to extract from the composable
+const { counterData, oddOrEven, increaseCounter, decreaseCounter } =
+  useCounter();
+
+// or assign the whole composable to a variable:
+// using this method you must prepend everywhere you use the data from the composable with the variable name and . (eg: counter.)
+// const counter = useCounter();
 </script>
 
 <!--
