@@ -11,7 +11,11 @@
     <textarea v-autofocus />
 
     <div>
-      <button @click="increaseCounter(1)" class="counter-button">
+      <button
+        @click="increaseCounter(1)"
+        class="counter-button"
+        :class="{ yellow: oddOrEven === 'odd' }"
+      >
         {{ counterData.count }}
       </button>
     </div>
@@ -50,7 +54,7 @@ const posts = ref([
   counter button
 */
 
-const { counterData, increaseCounter } = useCounter();
+const { counterData, increaseCounter, oddOrEven } = useCounter();
 </script>
 
 <style scoped>
@@ -62,5 +66,9 @@ ul {
   font-size: 60px;
   width: 100%;
   background-color: pink;
+}
+
+.counter-button.yellow {
+  background-color: yellow;
 }
 </style>
