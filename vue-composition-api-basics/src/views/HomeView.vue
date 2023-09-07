@@ -2,12 +2,12 @@
   <div class="home">
     <h2 ref="appTitleRef">{{ appTitle }}</h2>
 
-    <h3>Hard-coded counter</h3>
+    <h3>{{ counter.title }}</h3>
 
     <div>
       <button class="btn">--</button>
       <button class="btn">-</button>
-      <span class="counter">0</span>
+      <span class="counter">{{ counter.count }}</span>
       <button class="btn">+</button>
       <button class="btn">++</button>
     </div>
@@ -16,7 +16,7 @@
 
     <div class="edit">
       <h4>Edit counter title:</h4>
-      <input type="text" v-autofocus />
+      <input v-model="counter.title" type="text" v-autofocus />
     </div>
   </div>
 </template>
@@ -27,6 +27,7 @@
 */
 
 import { ref, onMounted } from 'vue';
+import { useCounterStore } from '../stores/counter';
 import { vAutofocus } from '@/directives/vAutofocus';
 
 /*
@@ -44,6 +45,8 @@ onMounted(() => {
 /*
   counter
 */
+
+const counter = useCounterStore();
 
 // access useCounter composable using destucturing
 // allows you to pull out just the things you want to extract from the composable
