@@ -8,10 +8,16 @@ export const useCounterStore = defineStore({
   }),
   actions: {
     increaseCounter(amount) {
-      this.count = +amount;
+      this.count += amount;
     },
     decreaseCounter(amount) {
       this.count -= amount;
+    },
+  },
+  getters: {
+    oddOrEven: (state) => {
+      if (state.count % 2 === 0) return 'even';
+      return 'odd';
     },
   },
 });
