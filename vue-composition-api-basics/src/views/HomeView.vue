@@ -5,11 +5,11 @@
     <h3>{{ counter.title }}</h3>
 
     <div>
-      <button class="btn">--</button>
-      <button class="btn">-</button>
+      <button @click="counter.decreaseCounter(2)" class="btn">--</button>
+      <button @click="counter.decreaseCounter(1)" class="btn">-</button>
       <span class="counter">{{ counter.count }}</span>
-      <button class="btn">+</button>
-      <button class="btn">++</button>
+      <button @click="counter.increaseCounter(1)" class="btn">+</button>
+      <button @click="counter.increaseCounter(2)" class="btn">++</button>
     </div>
 
     <p>This counter is odd/even</p>
@@ -26,15 +26,15 @@
   imports
 */
 
-import { ref, onMounted } from 'vue';
-import { useCounterStore } from '../stores/counter';
-import { vAutofocus } from '@/directives/vAutofocus';
+import { ref, onMounted } from "vue";
+import { useCounterStore } from "../stores/counter";
+import { vAutofocus } from "@/directives/vAutofocus";
 
 /*
   app title
 */
 
-const appTitle = 'My Ok Counter App';
+const appTitle = "My Ok Counter App";
 
 const appTitleRef = ref(null);
 
